@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Calculator</title>
     <link rel="stylesheet" href="styles.css">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
+</head>
 <body>
     <h1>Simple Calculator</h1>
     <p>use mouse or keyboard</p>
     <div class="calculator">
         <div class="displays">
-            <div class="display" id="input-display">digit-1 operand digit-2 </div>
-            <div class="display" id="output-display">= output</div>
+            <div class="display" id="input-display"></div>
+            <div class="display" id="output-display">= </div>
         </div>
         <div class="keys" aria-controls="display">
                 <button class="digit" id="digit-1">1</button>
@@ -26,7 +26,8 @@
                 <button class="digit" id="digit-8">8</button>
                 <button class="digit" id="digit-9">9</button>
                 <button class="digit" id="digit-0">0</button>
-                <button class="operator" id="period">&period;</button>
+                <button class="digit" id="sign">&plus;&sol;&minus;</button>
+                <button class="digit" id="period">&period;</button>
                 <button class="operator" id="mod">mod</button>
                 <button class="operator" id="plus">&plus;</button>
                 <button class="operator" id="minus">&minus;</button>
@@ -37,7 +38,7 @@
                 <button id="equals">&equals;</button>
         </div>
     </div>
-    <script src="script.js"></script>
+	<script src="script.js" defer></script>
+    <!-- <script src="script-ai.js" defer></script> -->
 </body>
-
 </html>

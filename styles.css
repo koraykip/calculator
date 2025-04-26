@@ -29,16 +29,17 @@
         --color-clear-bg: #e57373;
         --color-clear-hover: #ef5350;
     /* Typography */
-        --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        --display-font-size: calc(var(--unit) * 1.25);
-        --output-font-size: calc(var(--unit) * 1.25);
-        --button-font-size: calc(var(--unit) * 1.25);
+        --font-family1: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        --font-family2: 'DS-Digital', monospace;
+        --display-font-size: calc(var(--unit) * 2);
+        --output-font-size:  calc(var(--unit) * 2);
+        --button-font-size:  calc(var(--unit) * 1.5);
     /* Sizing (multiples of --unit) */
         --calculator-width: calc(var(--unit) * 22.5);
         --button-size: calc(var(--unit) * 3.75);
         --display-height: calc(var(--unit) * 3);
-        --display-padding-vertical: calc(var(--unit) * 0.75);
-        --display-padding-horizontal: calc(var(--unit) * 1);
+        --display-padding-vertical: calc(var(--unit) * 0.25);
+        --display-padding-horizontal: calc(var(--unit) * 0.55);
         --gap: calc(var(--unit) * 0.5);
         --radius: calc(var(--unit) * 0.25);
     /* Shadows */
@@ -49,6 +50,12 @@
 
 * , *::before , *::after { box-sizing: border-box; }
 
+@font-face {
+    font-family: 'DS-Digital';
+    src: url('./fonts/ds-digital/DS-DIGIT.TTF')   format('truetype');
+    font-style: normal;
+  }
+
 body {
     margin: 0;
     padding: 0;
@@ -58,10 +65,15 @@ body {
     align-items: center;
     height: 100vh;
     background-color: var(--color-calc-bg);
-    font-family: var(--font-family);
+    font-family: var(--font-family1);
 }
-h1 { text-transform: uppercase; margin:0;}
-p  { font-size: calc(var(--unit) * 1.25)}
+h1 { text-transform: uppercase; margin:0;
+    font-family: var(--font-family2); 
+    font-size: calc(var(--unit)*2);
+    border: 1px solid var(--color-black);padding: var(--gap);
+    border-radius: var(--radius);
+}
+p  { font-size: calc(var(--unit) * 1)}
 
 .calculator {
     user-select: none;
@@ -73,6 +85,7 @@ p  { font-size: calc(var(--unit) * 1.25)}
 }
 
 .displays {
+    font-family: var(--font-family2);
     display: flex;
     flex-direction: column;
     gap: calc(var(--gap) * 0.5);
@@ -87,7 +100,7 @@ p  { font-size: calc(var(--unit) * 1.25)}
     height: var(--display-height);
     color: var(--color-display-text);
     font-size: var(--display-font-size);
-    overflow-x: auto;
+    overflow-x: auto; overflow-y: auto; 
     background: var(--color-display-secondary);
     padding: var(--display-padding-vertical) var(--display-padding-horizontal);
     border-radius: var(--radius);
@@ -112,25 +125,29 @@ p  { font-size: calc(var(--unit) * 1.25)}
 }
 
 /* Grid cell positions and specific colors */
-#digit-1   { grid-column: 1; grid-row: 1; }
-#digit-2   { grid-column: 2; grid-row: 1; }
-#digit-3   { grid-column: 3; grid-row: 1; }
-#plus      { grid-column: 4; grid-row: 1; }
-#clear     { grid-column: 5; grid-row: 1; }
-#digit-4   { grid-column: 1; grid-row: 2; }
-#digit-5   { grid-column: 2; grid-row: 2; }
-#digit-6   { grid-column: 3; grid-row: 2; }
-#minus     { grid-column: 4; grid-row: 2; }
-#backspace { grid-column: 5; grid-row: 2; }
-#digit-7   { grid-column: 1; grid-row: 3; }
-#digit-8   { grid-column: 2; grid-row: 3; }
-#digit-9   { grid-column: 3; grid-row: 3; }
-#multiply  { grid-column: 4; grid-row: 3; }
-#equals    { grid-column: 5; grid-row: 3 / span 2; }
-#period    { grid-column: 1; grid-row: 4; }
-#digit-0   { grid-column: 2; grid-row: 4; }
-#mod       { grid-column: 3; grid-row: 4; }    
-#divide    { grid-column: 4; grid-row: 4; }
+#digit-1   { grid-row: 1; grid-column: 1; }
+#digit-2   { grid-row: 1; grid-column: 2; }
+#digit-3   { grid-row: 1; grid-column: 3; }
+#plus      { grid-row: 1; grid-column: 4; }
+#clear     { grid-row: 1; grid-column: 5; }
+
+#digit-4   { grid-row: 2; grid-column: 1; }
+#digit-5   { grid-row: 2; grid-column: 2; }
+#digit-6   { grid-row: 2; grid-column: 3; }
+#minus     { grid-row: 2; grid-column: 4; }
+#backspace { grid-row: 2; grid-column: 5; }
+
+#digit-7   { grid-row: 3; grid-column: 1; }
+#digit-8   { grid-row: 3; grid-column: 2; }
+#digit-9   { grid-row: 3; grid-column: 3; }
+#multiply  { grid-row: 3; grid-column: 4; }
+#mod       { grid-row: 3; grid-column: 5; }  
+
+#plusminus { grid-row: 4; grid-column: 1; }
+#digit-0   { grid-row: 4; grid-column: 2; }
+#period    { grid-row: 4; grid-column: 3; }
+#divide    { grid-row: 4; grid-column: 4; }
+#equals    { grid-row: 4; grid-column: 5; } 
 
 
 button {
