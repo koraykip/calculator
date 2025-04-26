@@ -14,7 +14,6 @@ let operand2 = '';
 let inputDisplayValue = '';
 let outputDisplayValue = '= ';
 
-
 function log(){
 	console.log('operand1: ', operand1);
 	console.log('operand1true: ', operand1true);
@@ -36,7 +35,6 @@ function multiply(a, b){ operates ='×'; return a * b; }
 function divide(a, b) {operates ='÷'; return b === 0 ? "\u{1F914}" : a / b;}
 function modulus(a, b){operates ='mod'; return b === 0 ? "\u{1F914}" : a % b;}
  
-
 function operate(op, a, b) {
 	console.log('operate()');
 	operand1true = false; 
@@ -48,7 +46,6 @@ function operate(op, a, b) {
 	  case ' mod ': return modulus(a, b);
 	  default : return null;
 	}
-
 }
 
 function clearKeyInput() {
@@ -58,6 +55,7 @@ function clearKeyInput() {
 	sign     = false;
 	operator = null;
 }
+
 function clear(){
 	console.log('clear()');
 	clearKeyInput();
@@ -139,7 +137,6 @@ function processInput() {
 		inputDisplayValue = `${operand1} ${operates} ${operand2}`;
 		updateInputDisplay(inputDisplayValue);
 	}
-
 	log();
 }
 
