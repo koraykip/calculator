@@ -126,14 +126,22 @@ function processInput() {
 		updateInputDisplay(inputDisplayValue);
 		log();
 	} else if (sign) {		
-		operand1true ? operand1*= -1 : operand2*= -1;
+		// operand1true ? operand1*= -1 : operand2*= -1;
+		if (operand1true) {
+			operand1 = operand1.startsWith('-')
+			  ? operand1.slice(1)
+			  : '-' + operand1;
+		  } else {
+			operand2 = operand2.startsWith('-')
+			  ? operand2.slice(1)
+			  : '-' + operand2;
+		  }
 		inputDisplayValue = `${operand1} ${operates} ${operand2}`;
 		updateInputDisplay(inputDisplayValue);
 	}
 
 	log();
 }
-
 
 allButtons.forEach(button => {
 	button.addEventListener('click', () => {
